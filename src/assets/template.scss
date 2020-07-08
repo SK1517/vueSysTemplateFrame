@@ -1,30 +1,31 @@
 /*主文本颜色值*/
-$base-text-color:#333;
+$base-text-color: #333;
 /*主颜色值*/
-$primary-bg-color:#00a6a6;
+$primary-bg-color: #00a6a6;
 //header背景
-$header-bg-color:#00a6a6;
+$header-bg-color: #00a6a6;
 //header文本颜色
-$header-text-color:#fff;
+$header-text-color: #fff;
 //侧边栏文本颜色
-$aside-text-color:#fff;
+$aside-text-color: #fff;
 //侧边栏背景
-$aside-bg-color:#373a49;
+$aside-bg-color: #373a49;
 //内容区域背景色
-$main-bg-color:#f1f1f1;
+$main-bg-color: #f1f1f1;
 //内容区域文本颜色
-$main-text-color:#333;
+$main-text-color: #333;
 //菜单文本颜色
-$menu-text-color:#f2f2f2;
-$border-color:#e6e6e6;
-$box-shadow:0px 2px 3px -2px #999;
-.m-layout-container{
+$menu-text-color: #f2f2f2;
+$border-color: #e6e6e6;
+$box-shadow: 0px 2px 3px -2px #999;
+.m-layout-container {
   position: relative;
   width: 100%;
   height: 100%;
   color: $base-text-color;
 }
-.m-layout-header{
+
+.m-layout-header {
   position: relative;
   //padding: 0 !important;
   background: $header-bg-color;
@@ -33,92 +34,114 @@ $box-shadow:0px 2px 3px -2px #999;
   align-items: center;
   justify-content: space-between;
 }
-.m-layout-aside{
+
+.m-layout-aside {
   position: relative;
   background: $aside-bg-color;
   color: $aside-text-color;
 }
-.m-layout-main{
+
+.m-layout-main {
   position: relative;
   padding: 0 !important;
   color: $main-text-color;
   background: $main-bg-color;
 
 }
-.m-layout-header .header-title{
+
+.m-layout-header .header-title {
   font-size: 1.8rem;
   line-height: 3rem;
 }
-.m-layout-header .el-dropdown{
+
+.m-layout-header .el-dropdown {
   color: $header-text-color;
   cursor: pointer;
 }
-.el-menu{
+
+.el-menu {
   background-color: transparent !important;
-  border:none !important;
+  border: none !important;
 }
-.el-submenu__title,.el-menu-item{
+
+.el-submenu__title, .el-menu-item {
   text-align: left;
 }
-.el-submenu__title,.el-submenu__title i{
+
+.el-submenu__title, .el-submenu__title i {
   color: $menu-text-color !important;
 }
-.el-menu-item,.el-menu-item i{
+
+.el-menu-item, .el-menu-item i {
   color: $menu-text-color !important;
 }
-.el-submenu__title:hover,.el-menu-item:hover{
-  background-color: rgba(0,0,0,0.2) !important;
+
+.el-submenu__title:hover, .el-menu-item:hover {
+  background-color: rgba(0, 0, 0, 0.2) !important;
 }
-.el-menu-item.is-active,.el-menu-item.is-active:hover{
+
+.el-menu-item.is-active, .el-menu-item.is-active:hover {
   background-color: $primary-bg-color !important;
 }
-.el-menu--horizontal > .el-submenu.is-active .el-submenu__title,.el-menu--horizontal > .el-menu-item.is-active{
+
+.el-menu--horizontal > .el-submenu.is-active .el-submenu__title, .el-menu--horizontal > .el-menu-item.is-active {
   border-bottom: 2px solid $header-text-color !important;
   font-weight: bold;
 }
-.el-menu--horizontal  .el-submenu__title,.el-menu--horizontal  .el-menu-item{
+
+.el-menu--horizontal .el-submenu__title, .el-menu--horizontal .el-menu-item {
   //color:$base-text-color !important;
 }
-.tags-li-title{
+
+.tags-li-title {
   max-width: none !important;
 }
 
-.condition-wrapper .el-input,.condition-wrapper .el-select{
+.condition-wrapper .el-input, .condition-wrapper .el-select {
   width: 240px !important;
 }
-.el-collapse,.el-collapse-item__header,.el-collapse-item__wrap{
+
+.el-collapse, .el-collapse-item__header, .el-collapse-item__wrap {
   background-color: transparent !important;
-  border:none !important;
+  border: none !important;
   color: $header-text-color !important;
 }
-.el-pagination{
+
+.el-pagination {
   background-color: #fff;
 }
-.el-table{
+
+.el-table {
   box-shadow: $box-shadow;
 }
-.nav-tags{
+
+.nav-tags {
   padding: 10px 15px;
   background: #fff;
   box-shadow: $box-shadow;
 }
-.nav-tags .el-tag.active{
+
+.nav-tags .el-tag.active {
   color: $header-text-color;
   background-color: $header-bg-color;
 }
-.nav-tags .el-tag.active .tags-li-title,.nav-tags .el-tag.active i{
+
+.nav-tags .el-tag.active .tags-li-title, .nav-tags .el-tag.active i {
   color: $header-text-color !important;
 }
-.link-text{
+
+.link-text {
   cursor: pointer;
   line-height: 2rem;
   color: $header-text-color !important;
 }
-.link-text i{
+
+.link-text i {
   margin-right: 0.5rem;
   color: $header-text-color !important;
 }
-.condition-wrapper{
+
+.condition-wrapper {
   background-color: #fff;
   padding: 20px;
   border-bottom: 1px solid $border-color;
@@ -127,10 +150,12 @@ $box-shadow:0px 2px 3px -2px #999;
   display: flex;
   align-items: center;
 }
-.condition-item{
+
+.condition-item {
   display: flex;
   align-items: center;
 }
-.condition-item+.condition-item{
+
+.condition-item + .condition-item {
   margin-left: 30px;
 }

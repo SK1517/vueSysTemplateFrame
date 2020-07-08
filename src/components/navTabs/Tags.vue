@@ -15,7 +15,7 @@
         <div class="tags-close-box">
             <!-- elementUi下拉菜单 -->
             <el-dropdown @command="handleTags">
-                <el-button size="mini" >
+                <el-button size="mini">
                     标签选项
                     <i class="el-icon-arrow-down el-icon--right"></i>
                 </el-button>
@@ -29,83 +29,83 @@
 </template>
 
 <script>
-  import bus from "./bus";  // 引入通用组件传值组件
-  export default {
-    data() {
-      return {
-        tagsList: [], // 存放所有标签
-      };
-    },
-    methods: {
-      // 当前选中标签
-      isActive(path) {
-        return path === this.$route.fullPath;
-      },
-      // 关闭单个标签
-      closeTags(index) {
-        const delItem = this.tagsList.splice(index, 1)[0];
-        const item = this.tagsList[index]
-          ? this.tagsList[index]
-          : this.tagsList[index - 1];
-        if (item) {
-          delItem.path === this.$route.fullPath && this.$router.push(item.path);
-        } else {
-          this.$router.push("/");
-        }
-      },
-      // 关闭全部标签
-      closeAll() {
-        this.tagsList = [];
-        this.$router.push("/");
-      },
-      // 关闭其他标签
-      closeOther() {
-        const curItem = this.tagsList.filter(item => {
-          return item.path === this.$route.fullPath;
-        });
-        this.tagsList = curItem;
-      },
-      // 设置标签
-      setTags(route) {
-        if(route.path!=='/'){
-          const isExist = this.tagsList.some(item => {
-            return item.path === route.fullPath;
-          });
-          if (!isExist) {
-            if (this.tagsList.length >= 8) {
-              this.tagsList.shift();
+    import bus from "./bus";  // 引入通用组件传值组件
+    export default {
+        data() {
+            return {
+                tagsList: [], // 存放所有标签
+            };
+        },
+        methods: {
+            // 当前选中标签
+            isActive(path) {
+                return path === this.$route.fullPath;
+            },
+            // 关闭单个标签
+            closeTags(index) {
+                const delItem = this.tagsList.splice(index, 1)[0];
+                const item = this.tagsList[index]
+                    ? this.tagsList[index]
+                    : this.tagsList[index - 1];
+                if (item) {
+                    delItem.path === this.$route.fullPath && this.$router.push(item.path);
+                } else {
+                    this.$router.push("/");
+                }
+            },
+            // 关闭全部标签
+            closeAll() {
+                this.tagsList = [];
+                this.$router.push("/");
+            },
+            // 关闭其他标签
+            closeOther() {
+                const curItem = this.tagsList.filter(item => {
+                    return item.path === this.$route.fullPath;
+                });
+                this.tagsList = curItem;
+            },
+            // 设置标签
+            setTags(route) {
+                if (route.path !== '/') {
+                    const isExist = this.tagsList.some(item => {
+                        return item.path === route.fullPath;
+                    });
+                    if (!isExist) {
+                        if (this.tagsList.length >= 8) {
+                            this.tagsList.shift();
+                        }
+                        this.tagsList.push({
+                            title: route.meta.title,
+                            path: route.fullPath,
+                            name: route.matched[0].components.default.name
+                        });
+                    }
+                }
+                bus.$emit("tags", this.tagsList); // 组件传值
+            },
+            // 点击标签下拉选项(关闭其他或者关闭所有)
+            handleTags(command) {
+                command === "other" ? this.closeOther() : this.closeAll();
             }
-            this.tagsList.push({
-              title: route.meta.title,
-              path: route.fullPath,
-              name: route.matched[0].components.default.name
-            });
-          }
+        },
+        computed: {
+            // 大于0则显示标签组件
+            showTags() {
+                return this.tagsList.length > 0;
+            }
+        },
+        watch: {
+            // 当$route发生变化重新赋值
+            $route(newValue) {
+                this.$root.currentRoutePath = newValue.path;
+                this.setTags(newValue);
+            }
+        },
+        created() {
+            this.setTags(this.$route);
         }
-        bus.$emit("tags", this.tagsList); // 组件传值
-      },
-      // 点击标签下拉选项(关闭其他或者关闭所有)
-      handleTags(command) {
-        command === "other" ? this.closeOther() : this.closeAll();
-      }
-    },
-    computed: {
-      // 大于0则显示标签组件
-      showTags() {
-        return this.tagsList.length > 0;
-      }
-    },
-    watch: {
-      // 当$route发生变化重新赋值
-      $route(newValue) {
-        this.$root.currentRoutePath = newValue.path;
-        this.setTags(newValue);
-      }
-    },
-    created() {
-      this.setTags(this.$route);
-    }
-  };
+    };
 </script>
 
 
@@ -165,13 +165,16 @@
     .tags-li.active .tags-li-title {
         color: #fff;
     }
+
     .tags-li.active {
         border: 1px solid #409EFF;
         background-color: #409EFF;
     }
+
     a {
         text-decoration: none;
     }
+
     .tags-close-box {
         position: relative;
         box-sizing: border-box;
@@ -183,7 +186,8 @@
         /*box-shadow: -3px 0 15px 3px rgba(0, 0, 0, 0.1);*/
         z-index: 10;
     }
-    .el-tag+.el-tag{
+
+    .el-tag + .el-tag {
         margin-left: 15px;
     }
 </style>
