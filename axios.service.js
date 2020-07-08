@@ -4,7 +4,7 @@ import axs from 'axios'
 
 axs.defaults.baseURL = process.env.VUE_APP_BASEURL;
 axs.defaults.timeout = 1000000;
-// import utils from './src/utils';
+import utils from './src/utils';
 import gConfig from './src/config';
 
 const loginPath = gConfig.loginPath;

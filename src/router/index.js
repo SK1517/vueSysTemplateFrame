@@ -3,29 +3,32 @@ import VueRouter from 'vue-router'
 
 import Content from '../Content'
 
+// import Login from '../components/Login'
+
 Vue.use(VueRouter)
-const beforeEnter = (to, from, next) => {
-    if (to.meta && to.meta.title) {
-        document.title = to.meta.title;
-    }
-    if (window.$rootVue) {
-        window.$rootVue.currentRoutePath = to.path;
-    }
-    next()
-}
+// const beforeEnter = (to, from, next) => {
+//     if (to.meta && to.meta.title) {
+//         document.title = to.meta.title;
+//     }
+//     if (window.$rootVue) {
+//         window.$rootVue.currentRoutePath = to.path;
+//     }
+//     next()
+// }
 const routes = [
-    {
-        path: '/login',
-        name: 'Login',
-        meta: {title: '登录'},
-        beforeEnter,
-    },
+    // {
+    //     path: '/login',
+    //     name: 'Login',
+    //     meta: {title: '登录'},
+    //     component: Login,
+    //     beforeEnter,
+    // },
     {
         path: '/',
         name: 'Content',
         meta: {title: 'Vue Sys Template'},
         component: Content,
-        redirect: '/login',
+        // redirect: '/login',
         children: []
     },
 

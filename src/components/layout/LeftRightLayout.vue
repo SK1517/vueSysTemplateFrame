@@ -39,7 +39,7 @@
         data() {
             return {
                 tagsList: [],
-                needNavTab: false,
+                needNavTab: true,
             }
         },
         created() {
@@ -48,6 +48,7 @@
                 bus.$on('tags', msg => {
                     let arr = []
                     for (let i = 0, len = msg.length; i < len; i++) {
+                        console.log("msg:" + msg[i])
                         msg[i].name && arr.push(msg[i].name)
                     }
                     this.tagsList = arr

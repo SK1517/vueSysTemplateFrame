@@ -41,7 +41,7 @@
         data() {
             return {
                 tagsList: [],
-                needNavTab: false,
+                needNavTab: true,
             }
         },
         created() {

@@ -1,15 +1,20 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
-    <p>{{ text }} World!</p>
+    <div>
+        <up-left-right-layout></up-left-right-layout>
+    </div>
 </template>
 
 <script>
 
+    import UpLeftRightLayout from './components/layout/UpLeftRightLayout';
+
     export default {
         name: "Content",
+        components: {
+            UpLeftRightLayout,
+        },
         data: function () {
-            return {
-                text: 'Hello'
-            }
+            return {}
         }
     }
 </script>
