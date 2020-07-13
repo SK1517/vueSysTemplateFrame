@@ -1,40 +1,55 @@
 <template xmlns:v-slot="http://www.w3.org/1999/XSL/Transform">
     <div>
-        <up-left-right-layout :aside-width="220" :header-height="100">
-            <template v-slot:aside>选择</template>
-            <template v-slot:header>查看</template>
+        <up-left-right-layout :header-height="100">
+            <template v-slot:header>
+                <el-input v-model="search.prop"
+                          :placeholder="'请输入'+search.label" prefix-icon="el-icon-search"
+                          :style="{width:'500px'}"></el-input>
+                <el-button class="login-btn" type="primary" @click="submitSearch('loginForm')"
+                           v-loading="submitSearching">
+                    搜索
+                </el-button>
+            </template>
         </up-left-right-layout>
-        <left-right-layout :aside-width="300" :header-height="100">
-            <template v-slot:aside>左右1</template>
-            <template v-slot:header>左右</template>
-        </left-right-layout>
-        <left-up-down-layout :aside-width="220" :header-height="100">
-            <template v-slot:aside>leftupdown</template>
-            <template v-slot:header>leftupdown1</template>
-        </left-up-down-layout>
-        <up-down-layout :header-height="100">
-            <template v-slot:header>updown1</template>
-        </up-down-layout>
     </div>
 </template>
 
 <script>
 
     import UpLeftRightLayout from './components/layout/UpLeftRightLayout';
-    import LeftRightLayout from "./components/layout/LeftRightLayout";
-    import LeftUpDownLayout from "./components/layout/LeftUpDownLayout";
-    import UpDownLayout from "./components/layout/UpDownLayout";
 
     export default {
         name: "Content",
         components: {
             UpLeftRightLayout,
-            LeftRightLayout,
-            LeftUpDownLayout,
-            UpDownLayout,
+        },
+        props: {
+            search: {
+                type: Object,
+                default: function () {
+                    return {
+                        label: '搜索内容',
+                        prop: 'search'
+                    }
+                }
+            },
         },
         data: function () {
-            return {}
+            return {
+                submitSearching: false
+            }
+        },
+
+        methods: {
+            submitSearch(formName) {
+                this.$refs[formName].validate((valid) => {
+                    if (valid) {
+                        this.submitLoading = true;
+                    } else {
+                        return false;
+                    }
+                });
+            }
         }
     }
 </script>
