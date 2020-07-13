@@ -8,6 +8,13 @@
             <template v-slot:aside>左右1</template>
             <template v-slot:header>左右</template>
         </left-right-layout>
+        <left-up-down-layout :aside-width="220" :header-height="100">
+            <template v-slot:aside>leftupdown</template>
+            <template v-slot:header>leftupdown1</template>
+        </left-up-down-layout>
+        <up-down-layout :header-height="100">
+            <template v-slot:header>updown1</template>
+        </up-down-layout>
     </div>
 </template>
 
@@ -15,12 +22,16 @@
 
     import UpLeftRightLayout from './components/layout/UpLeftRightLayout';
     import LeftRightLayout from "./components/layout/LeftRightLayout";
+    import LeftUpDownLayout from "./components/layout/LeftUpDownLayout";
+    import UpDownLayout from "./components/layout/UpDownLayout";
 
     export default {
         name: "Content",
         components: {
             UpLeftRightLayout,
             LeftRightLayout,
+            LeftUpDownLayout,
+            UpDownLayout,
         },
         data: function () {
             return {}
