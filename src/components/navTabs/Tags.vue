@@ -33,7 +33,9 @@
     export default {
         data() {
             return {
-                tagsList: [], // 存放所有标签
+                tagsList: [
+                    // {path: '../../router/Search', title:'Search'}
+                ], // 存放所有标签
             };
         },
         methods: {

@@ -35,7 +35,9 @@
         },
         data() {
             return {
-                tagsList: [],
+                tagsList: [
+                    // {path: '../../router/Search', title:'Search'}
+                ],
                 needNavTab: false,
             }
         },
@@ -55,5 +57,14 @@
 </script>
 
 <style scoped>
+
+    .m-layout-header {
+        position: relative;
+        background: #00000000;
+        color: #fff;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+    }
 
 </style>

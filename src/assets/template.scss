@@ -159,3 +159,22 @@ $box-shadow: 0px 2px 3px -2px #999;
 .condition-item + .condition-item {
   margin-left: 30px;
 }
+
+.el-button–primary {
+  margin-left: 1px !important;
+  float: left;
+  height: 100%;
+  color: #fff !important;
+  background-color: #cc0e101a !important;
+  border-color: #cc0e101a !important;
+}
+
+.el-button–primary:hover {
+  background-color: #0096ff !important;
+  border-color: #0096ff !important;
+}
+
+.el-button–primary:focus {
+  background-color: #0096ff !important;
+  border-color: #0096ff !important;
+}
