@@ -2,8 +2,8 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 
 import Content from '../Content'
-import Search from "./Search";
-import Search1 from "./Search1";
+import UserManager from "../views/UserManager";
+import GoodsManager from "../views/GoodsManager";
 
 // import Login from '../components/Login'
 
@@ -23,10 +23,10 @@ const routes = [
         name: 'Content',
         meta: {title: 'Vue Sys Template'},
         component: Content,
-        redirect: '/router/Search1',
+        redirect: '/views/UserManager',
         children: [
-            {path: '/router/Search', component: Search, title: 'search'},
-            {path: '/router/Search1', component: Search1, title: 'search1'},
+            {path: '/views/UserManager', component: UserManager, title: 'UserManager'},
+            {path: '/views/GoodsManager', component: GoodsManager, title: 'GoodsManager'},
         ]
     },
 ]
